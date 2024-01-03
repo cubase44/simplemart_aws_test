@@ -40,3 +40,13 @@ docker
 ・開発環境の構築方法
 ・必要な環境変数やコマンド一覧
 ・トラブルシューティング
+
+・参考
+https://zenn.dev/redheadchloe/articles/8e3b3b4eb358a2
+
+
+docker container exec -it コンテナ名 bash
+
+docker-compose ps
+
+rails routes
