@@ -1,0 +1,53 @@
+
+
+<body>
+	<div class="container-fluid">
+		<div class="container">
+			<h2 class="text-center" id="title">ログイン</h2>
+			 <p class="text-center">
+			 ご登録のメールアドレスとパスワードをご入力ください。
+			</p>
+ 			<hr>
+			<div class="row">
+				<div class="col-md-5">
+					<%= form_for(:session, url: login_path) do |form| %>
+						<fieldset>
+
+						<p class="danger alert-danger">
+						<%= flash.now[:danger] %> </p>
+
+							<p class="text-uppercase pull-center"> 登録情報 </p>
+
+							<div class="form-group">
+							   <%= form.label :メールアドレス %>
+							   <%= form.text_field :email, class: "form-control mb-3" %>
+						    </div>
+
+							<div class="form-group">
+							    <%= form.label :パスワード %>
+                                <%= form.password_field :password, class: "form-control mb-3"  %>
+							</div>
+
+							<div class="form-check">
+								<label class="form-check-label">
+								<input type="checkbox" class="form-check-input">
+								  注意事項・利用規約・プライバシーポリシーにご同意の上、確認画面へお進みください。
+								</label>
+							</div>
+
+							<%= form.submit "ログイン", class:'btn btn-lg btn-primary mt-4' %>
+
+						</fieldset>
+						<% end %>
+				</div>
+				<div class="col-md-2">
+					<!-------null------>
+				</div>
+
+			</div>
+		</div>
+		<p class="text-center mt-5">
+		・このページでご入力いただいた情報は、TLSで保護され 送信されます。一部ブラウザや携帯電話端末からは弊社 の一部ページにアクセスいただけません。ご了承ください。
+		</p>
+	</div>
+	</body>
