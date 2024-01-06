@@ -7,9 +7,9 @@ class SignupController < ApplicationController
     def create
         @user = User.new(user_params)
         if @user.save
-            redirect_to root_path, notice: "アカウトを作成しました。"
+            render :create, status: :unprocessable_entity
         else
-            render :new
+            render :new, status: :unprocessable_entity
         end
     end
 
