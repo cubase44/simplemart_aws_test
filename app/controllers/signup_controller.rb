@@ -7,6 +7,7 @@ class SignupController < ApplicationController
     def create
         @user = User.new(user_params)
         if @user.save
+            log_in @user
             render :create, status: :unprocessable_entity
         else
             render :new, status: :unprocessable_entity
