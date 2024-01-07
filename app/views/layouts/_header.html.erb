@@ -19,7 +19,7 @@
       <!-- この下の行に mr-auto クラスを付与するだけ -->
       <ul class="navbar-nav mr-auto">　
         <li class="nav-item">
-          <a class="nav-link" href="#">商品一覧</a>
+          <a class="nav-link" href="http://localhost:3000/items">商品一覧</a>
         </li>
 
       </ul>
@@ -29,14 +29,14 @@
 
         <% if logged_in? %>
         <li class="nav-item">
-        <%= link_to 'ログアウト', logout_path, class: "btn btn-sm btn-dark",method: :delete, data: { turbo_method: :delete } %>
+        <a class="nav-link btn btn-sm btn-dark" href="http://localhost:3000/carts">カート</a>
+        </li>
+        <li class="nav-item">
+        <%= link_to 'ログアウト', logout_path, class: "nav-link btn btn-sm btn-dark",method: :delete, data: { turbo_method: :delete } %>
         </li>
 <% else %>
 <li class="nav-item">
-<a class="nav-link btn btn-sm btn-dark" href="http://localhost:3000/signup">サインアップ</a>
-</li>
-<li class="nav-item">
-<a class="nav-link btn btn-sm btn-dark" href="http://localhost:3000/login">ログイン</a>
+<a class="nav-link btn btn-sm btn-dark" href="http://localhost:3000/carts">カート</a>
 </li>
 <% end %>
       </ul>

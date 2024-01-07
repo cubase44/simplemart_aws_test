@@ -1,0 +1,15 @@
+<% if logged_in? %>
+<li class="nav-item">
+<a class="nav-link btn btn-sm btn-dark">こんにちわ、<%= current_user.name %>さん</a>
+</li>
+<li class="nav-item">
+<%= link_to 'ログアウト', logout_path, class: "btn btn-sm btn-dark",method: :delete, data: { turbo_method: :delete } %>
+</li>
+<% else %>
+<li class="nav-item">
+<a class="nav-link btn btn-sm btn-dark" href="http://localhost:3000/signup">サインアップ</a>
+</li>
+<li class="nav-item">
+<a class="nav-link btn btn-sm btn-dark" href="http://localhost:3000/login">ログイン</a>
+</li>
+<% end %>
