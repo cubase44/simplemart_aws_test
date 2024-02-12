@@ -1,7 +1,9 @@
 class CartsController < ApplicationController
   def index
   if view_context.logged_in?
-    @carts = Cart.where(user_id: current_user.id)
+    @user = view_context.current_user
+    @carts = Cart.where(user_id: @user.id)
+    @current_carts = view_context.current_carts(@carts)
   else
     redirect_to login_path
   end

@@ -2,10 +2,44 @@
 <h2 class="text-center my-5">カート</h2>
 </div>
 
-  <div class='mx-auto max-w-3xl'>
-    <p class='mb-8 text-xl text-center'>商品がカートに入っていません。</p>
+<% if @current_carts.empty? %>
+
+<div class='mx-auto max-w-3xl'>
+<p class='mb-8 text-xl text-center'>商品がカートに入っていません。</p>
+<div class='text-center mt-5'>
+  <%= link_to '商品一覧へ', items_path, class: 'btn btn-primary' %>
+</div>
+</div>
+
+<% else %>
+
+<div class="container">
+<div>
+  <div>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr><th>商品名</th><th>価格</th><th>数量</th><th>詳細</th><th>削除</th></tr>
+      </thead>
+      <tbody>
+      <% @current_carts.each do |cart_item| %>
+        <% cart_item.each do |item| %>
+        <tr>
+          <td><%= item.name %></td>
+          <td><%= item.price %></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <% end %>
+        <% end %>
+      </tbody>
+    </table>
     <div class='text-center mt-5'>
-      <%= link_to '商品一覧へ', items_path, class: 'btn btn-primary' %>
-    </div>
+  <%= link_to '購入画面へ', items_path, class: 'btn btn-primary' %>
+  <%= link_to '商品一覧へ', items_path, class: 'btn btn-primary' %>
+</div>
   </div>
+</div>
+
+<% end %>
 
